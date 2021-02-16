@@ -37,6 +37,7 @@ const DefaultWrapper: React.FC = ({ children }) =>
 
 const RenderSlot: React.FC<{ slot: Slot }> = ({ slot }) => {
     const item = usePageItem();
+    console.log(item);
     
     return <ContainerEditor container={item.slots[slot.id]} />;
 };
