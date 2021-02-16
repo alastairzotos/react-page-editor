@@ -1,10 +1,19 @@
 import { PageItem } from '@bitmetro/cms-common';
 import * as React from 'react';
+import { ThemeProvider } from 'react-jss';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 
-import { defaultTheme, EditorTheme, EditorThemeContext, Slot, SlotRenderer, usePageItem } from '@bitmetro/content-renderer';
+import {
+    defaultTheme,
+    EditorTheme,
+    EditorThemeContext,
+    Slot,
+    SlotRendererContext,
+    usePageItem,
+    defaultThemeSettings
+} from '@bitmetro/content-renderer';
 import { contentEditorReducer } from '../reducers';
 import { styles } from '../styles';
 
@@ -28,30 +37,35 @@ export interface ContentEditorProps {
 const RenderSlot: React.FC<{ slot: Slot }> = ({ slot }) => {
     const item = usePageItem();
     console.log(item);
-    
+
     return <ContainerEditor container={item.slots[slot.id]} />;
 };
+
+const DefaultWrapper: React.FC = ({ children }) =>
+    <ThemeProvider theme={defaultThemeSettings}>{children}</ThemeProvider>;
 
 export const ContentEditor: React.FC<ContentEditorProps> = ({
     id,
     theme = defaultTheme,
     content,
     onChange,
-    Wrapper
+    Wrapper = DefaultWrapper
 }) => {
-    SlotRenderer.render = slot => <RenderSlot slot={slot} />;
 
     return (
         <>
             <style>{styles}</style>
             <Provider store={store}>
                 <EditorThemeContext.Provider value={theme}>
-                    <ContentEditorInner
-                        id={id}
-                        content={content}
-                        onChange={onChange}
-                        Wrapper={Wrapper}
-                    />
+                    <Wrapper>
+                        <SlotRendererContext.Provider value={RenderSlot}>
+                            <ContentEditorInner
+                                id={id}
+                                content={content}
+                                onChange={onChange}
+                            />
+                        </SlotRendererContext.Provider>
+                    </Wrapper>
                 </EditorThemeContext.Provider>
             </Provider>
         </>
