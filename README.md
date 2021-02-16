@@ -5,7 +5,7 @@ A simple drag-and-drop content editor for react
 ## Installation
 
 ```
-npm install --save @bitmetro/page-editor
+npm install --save @bitmetro/react-page-editor
 ```
 
 
