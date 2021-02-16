@@ -26,7 +26,7 @@ const store = useLogger
     : createStore(contentEditorReducer);
 
 export interface ContentEditorProps {
-    id: string;
+    id?: string;
     theme?: EditorTheme<any>;
     content: PageItem;
     onChange: (content: PageItem) => void;
@@ -43,7 +43,7 @@ const DefaultWrapper: React.FC = ({ children }) =>
     <ThemeProvider theme={defaultThemeSettings}>{children}</ThemeProvider>;
 
 export const ContentEditor: React.FC<ContentEditorProps> = ({
-    id,
+    id = '__default_editor_page__',
     theme = defaultTheme,
     content,
     onChange,
