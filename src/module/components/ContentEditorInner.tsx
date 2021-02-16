@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { contentEditorActions } from '../actions';
 import { Panel } from '../atomic/atoms/Panel';
 import SplitPanel from '../atomic/atoms/SplitPanel';
-import { defaultThemeSettings } from '@bitmetro/content-renderer';
+import { defaultThemeSettings, Slot, SlotRenderer, usePageItem } from '@bitmetro/content-renderer';
 import { DROP_TARGET_CLASS } from '../editor/editting/ContainerEditor';
 import { ContentEditorCore } from '../editor/editting/ContentEditorCore';
 import { DraggingItem } from '../editor/editting/DraggingItem';
@@ -15,7 +15,6 @@ import { Settings } from '../editor/settings/Settings';
 import { getContent, getCurrentNamespace, getDraggingItem, getDropTarget, isDroppingItem } from '../selectors';
 import { getIndexedItem } from '../utils';
 
-import { SlotRenderer, usePageItem } from '@bitmetro/content-renderer';
 import { ContainerEditor } from '../editor/editting/ContainerEditor';
 
 import { ContentEditorProps } from './ContentEditor';
@@ -36,6 +35,12 @@ const useStyles = makeStyles(theme => ({
 const DefaultWrapper: React.FC = ({ children }) =>
     <ThemeProvider theme={defaultThemeSettings}>{children}</ThemeProvider>;
 
+const RenderSlot: React.FC<{ slot: Slot }> = ({ slot }) => {
+    const item = usePageItem();
+    
+    return <ContainerEditor container={item.slots[slot.id]} />;
+};
+
 export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     id,
     content,
@@ -55,11 +60,7 @@ export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     const editorRect = !!ref.current && ref.current.getBoundingClientRect();
     const dragRef = React.useRef<HTMLDivElement>(null);
 
-    SlotRenderer.render = slot => {
-        const item = usePageItem();
-    
-        return <ContainerEditor container={item.slots[slot.id]} />;
-    };
+    SlotRenderer.render = slot => <RenderSlot slot={slot} />;
 
     React.useEffect(() => {
         if (currentNs !== id) {
