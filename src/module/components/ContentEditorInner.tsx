@@ -15,6 +15,9 @@ import { Settings } from '../editor/settings/Settings';
 import { getContent, getCurrentNamespace, getDraggingItem, getDropTarget, isDroppingItem } from '../selectors';
 import { getIndexedItem } from '../utils';
 
+import { SlotRenderer, usePageItem } from '@bitmetro/content-renderer';
+import { ContainerEditor } from '../editor/editting/ContainerEditor';
+
 import { ContentEditorProps } from './ContentEditor';
 
 type ContentEditorInnerProps = Omit<ContentEditorProps, 'theme'>;
@@ -51,6 +54,12 @@ export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     const ref = React.useRef<HTMLDivElement>(null);
     const editorRect = !!ref.current && ref.current.getBoundingClientRect();
     const dragRef = React.useRef<HTMLDivElement>(null);
+
+    SlotRenderer.render = slot => {
+        const item = usePageItem();
+    
+        return <ContainerEditor container={item.slots[slot.id]} />;
+    };
 
     React.useEffect(() => {
         if (currentNs !== id) {
