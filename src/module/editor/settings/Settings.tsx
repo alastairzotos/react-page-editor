@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { contentEditorActions } from '../../actions';
 import { Panel } from '../../atomic/atoms/Panel';
 import { getSelectedItem } from '../../selectors';
-import { PageItemContext, ThemeItemContext, useEditorTheme } from '../../theme';
+import { PageItemContext, ThemeItemContext, useEditorTheme } from '@bitmetro/content-renderer';
 import { ItemMenu } from '../itemMenu/ItemMenu';
 
 import { SettingsGroup } from './SettingsGroup';

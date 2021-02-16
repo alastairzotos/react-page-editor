@@ -1,6 +1,6 @@
 import { PageItem, Prefab } from '@bitmetro/cms-common';
 
-import { rowItem } from '../defaultTheme/items/Row';
+import { rowItem } from '@bitmetro/content-renderer/dist/defaultTheme/items/Row';
 
 export interface PageColumn extends Prefab {
     props: {

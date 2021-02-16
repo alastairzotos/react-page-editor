@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 
-import { defaultTheme } from '../defaultTheme';
+import { defaultTheme, EditorTheme, EditorThemeContext } from '@bitmetro/content-renderer';
 import { contentEditorReducer } from '../reducers';
 import { styles } from '../styles';
-import { EditorTheme, EditorThemeContext } from '../theme';
 
 import { ContentEditorInner } from './ContentEditorInner';
 

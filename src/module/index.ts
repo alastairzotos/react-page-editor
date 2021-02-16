@@ -1,4 +1,3 @@
-export * from './theme';
-export * from './defaultTheme';
 export * from './components';
 export * from '@bitmetro/cms-common';
+export * from '@bitmetro/content-renderer'

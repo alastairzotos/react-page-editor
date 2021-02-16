@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { contentEditorActions } from '../actions';
 import { Panel } from '../atomic/atoms/Panel';
 import SplitPanel from '../atomic/atoms/SplitPanel';
-import { defaultThemeSettings } from '../defaultTheme';
+import { defaultThemeSettings } from '@bitmetro/content-renderer';
 import { DROP_TARGET_CLASS } from '../editor/editting/ContainerEditor';
 import { ContentEditorCore } from '../editor/editting/ContentEditorCore';
 import { DraggingItem } from '../editor/editting/DraggingItem';
