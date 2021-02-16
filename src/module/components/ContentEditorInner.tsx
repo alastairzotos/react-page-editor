@@ -15,8 +15,6 @@ import { Settings } from '../editor/settings/Settings';
 import { getContent, getCurrentNamespace, getDraggingItem, getDropTarget, isDroppingItem } from '../selectors';
 import { getIndexedItem } from '../utils';
 
-import { ContainerEditor } from '../editor/editting/ContainerEditor';
-
 import { ContentEditorProps } from './ContentEditor';
 
 type ContentEditorInnerProps = Omit<ContentEditorProps, 'theme'>;
@@ -34,13 +32,6 @@ const useStyles = makeStyles(theme => ({
 
 const DefaultWrapper: React.FC = ({ children }) =>
     <ThemeProvider theme={defaultThemeSettings}>{children}</ThemeProvider>;
-
-const RenderSlot: React.FC<{ slot: Slot }> = ({ slot }) => {
-    const item = usePageItem();
-    console.log(item);
-    
-    return <ContainerEditor container={item.slots[slot.id]} />;
-};
 
 export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     id,
@@ -60,8 +51,6 @@ export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     const ref = React.useRef<HTMLDivElement>(null);
     const editorRect = !!ref.current && ref.current.getBoundingClientRect();
     const dragRef = React.useRef<HTMLDivElement>(null);
-
-    SlotRenderer.render = slot => <RenderSlot slot={slot} />;
 
     React.useEffect(() => {
         if (currentNs !== id) {
