@@ -5,6 +5,7 @@ import {
     PAGE_CLASS,
     Prefab
 } from '@bitmetro/cms-common';
+import { useEditorTheme } from '@bitmetro/content-renderer';
 import {
     FormControl,
     InputAdornment,
@@ -20,7 +21,6 @@ import { contentEditorActions } from '../../actions';
 import { Panel } from '../../atomic/atoms/Panel';
 import { Position } from '../../models';
 import { layoutPrefabs } from '../../prefabs';
-import { useEditorTheme } from '@bitmetro/content-renderer';
 
 import { ItemMenuSection, ItemMenuSectionProps } from './ItemMenuSection';
 

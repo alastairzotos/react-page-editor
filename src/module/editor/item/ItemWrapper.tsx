@@ -2,13 +2,13 @@ import {
     getAllChildren,
     PageItem
 } from '@bitmetro/cms-common';
+import { ItemContext, ItemEditorSettings, useDefaultStyles, useEditorTheme } from '@bitmetro/content-renderer';
 import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { contentEditorActions } from '../../actions';
-import { ItemContext, ItemEditorSettings, useDefaultStyles, useEditorTheme } from '@bitmetro/content-renderer';
 import {
     getDraggingItem,
     getDropTarget,

@@ -1,25 +1,24 @@
 import { PageItem } from '@bitmetro/cms-common';
+import {
+    defaultTheme,
+    defaultThemeSettings,
+    EditorTheme,
+    EditorThemeContext,
+    Slot,
+    SlotRendererContext,
+    usePageItem
+} from '@bitmetro/content-renderer';
 import * as React from 'react';
 import { ThemeProvider } from 'react-jss';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 
-import {
-    defaultTheme,
-    EditorTheme,
-    EditorThemeContext,
-    Slot,
-    SlotRendererContext,
-    usePageItem,
-    defaultThemeSettings
-} from '@bitmetro/content-renderer';
+import { ContainerEditor } from '../editor/editting/ContainerEditor';
 import { contentEditorReducer } from '../reducers';
 import { styles } from '../styles';
 
 import { ContentEditorInner } from './ContentEditorInner';
-
-import { ContainerEditor } from '../editor/editting/ContainerEditor';
 
 const useLogger = false;
 const store = useLogger
@@ -36,7 +35,6 @@ export interface ContentEditorProps {
 
 const RenderSlot: React.FC<{ slot: Slot }> = ({ slot }) => {
     const item = usePageItem();
-    console.log(item);
 
     return <ContainerEditor container={item.slots[slot.id]} />;
 };
