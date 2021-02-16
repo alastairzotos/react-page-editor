@@ -1,6 +1,6 @@
 {
   "name": "@bitmetro/react-page-editor",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json './**/*.ts{x,}'",
