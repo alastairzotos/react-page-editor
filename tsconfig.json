@@ -1,0 +1,21 @@
+{
+	"exclude": [
+		"dist"
+	],
+	"include": [
+		"src"
+	],
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"target": "es5",
+		"sourceMap": true,
+		"jsx": "react",
+		"rootDir": "src",
+		"outDir": "dist",
+		"baseUrl": "src",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": false
+	}
+}

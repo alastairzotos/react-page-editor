@@ -1,0 +1,88 @@
+{
+    "extends": [
+        "tslint:latest"
+    ],
+    "linterOptions": {
+        "exclude": [
+            "./**/*.d.ts",
+            "node_modules/**",
+            "node_modules/**"
+        ]
+    },
+    "rules": {
+        "indent": [
+            true,
+            "spaces",
+            4
+        ],
+        "max-classes-per-file": false,
+        "jsx-wrap-multiline": false,
+        "no-console": false,
+        "jsx-no-multiline-js": false,
+        "jsx-boolean-value": false,
+        "jsx-no-lambda": false,
+        "trailing-comma": [
+            false
+        ],
+        "object-literal-sort-keys": false,
+        "ordered-imports": [
+            true,
+            {
+                "grouped-imports": true
+            }
+        ],
+        "arrow-parens": [
+            true,
+            "ban-single-arg-parens"
+        ],
+        "interface-name": false,
+        "interface-over-type-literal": false,
+        "prefer-conditional-expression": false,
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double"
+        ],
+        "no-implicit-dependencies": false,
+        "no-submodule-imports": false,
+        "no-object-literal-type-assertion": false,
+        "member-access": [
+            true,
+            "no-public"
+        ],
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-module",
+            "check-separator",
+            "check-rest-spread",
+            "check-typecast",
+            "check-type-operator",
+            "check-preblock"
+        ],
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "public-constructor",
+                    "protected-constructor",
+                    "private-constructor",
+                    "private-static-field",
+                    "protected-static-field",
+                    "public-static-field",
+                    "public-static-method",
+                    "protected-static-method",
+                    "private-static-method",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ]
+    }
+}
