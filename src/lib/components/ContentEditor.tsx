@@ -1,6 +1,5 @@
 import { PageItem } from '@bitmetro/cms-common';
 import {
-    // defaultTheme,
     defaultThemeSettings,
     EditorTheme,
     EditorThemeContext,

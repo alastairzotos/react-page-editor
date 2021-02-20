@@ -1,5 +1,5 @@
 import { PageItem } from '@bitmetro/cms-common';
-import { makeStyles } from '@material-ui/core';
+import { darken, makeStyles } from '@material-ui/core';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
         height: '100%'
     },
     container: {
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: darken(theme.palette.background.default, 0.3),
         height: '100%',
-        padding: theme.spacing(1, 10)
+        padding: theme.spacing(1, 1)
     }
 }));
 
