@@ -13,19 +13,8 @@ npm install --save @bitmetro/react-page-editor
 
 ```jsx
 const App = () => {
-    const [state, setState] = React.useState({
-        id: 'page',
-        itemType: 'Page',
-        parentId: null,
-        children: []
-    });
+    const [state, setState] = React.useState(createPage());
 
-    return (
-        <ContentEditor
-            id="my_page" // Different editors should have different IDs
-            content={state}
-            onChange={s => setState(s)}
-        />
-    )
+    return <ContentEditor content={state} onChange={s => setState(s)} />;
 };
 ```

@@ -16,6 +16,7 @@
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"declaration": false
+		"skipLibCheck": true,
+		"declaration": true
 	}
 }

@@ -1,3 +1,4 @@
+import { PageItemContext, ThemeItemContext, useEditorTheme } from '@bitmetro/content-renderer';
 import { makeStyles, Typography } from '@material-ui/core';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { contentEditorActions } from '../../actions';
 import { Panel } from '../../atomic/atoms/Panel';
 import { getSelectedItem } from '../../selectors';
-import { PageItemContext, ThemeItemContext, useEditorTheme } from '../../theme';
 import { ItemMenu } from '../itemMenu/ItemMenu';
 
 import { SettingsGroup } from './SettingsGroup';

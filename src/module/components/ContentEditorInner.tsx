@@ -1,13 +1,11 @@
 import { PageItem } from '@bitmetro/cms-common';
 import { makeStyles } from '@material-ui/core';
 import * as React from 'react';
-import { ThemeProvider } from 'react-jss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { contentEditorActions } from '../actions';
 import { Panel } from '../atomic/atoms/Panel';
 import SplitPanel from '../atomic/atoms/SplitPanel';
-import { defaultThemeSettings } from '../defaultTheme';
 import { DROP_TARGET_CLASS } from '../editor/editting/ContainerEditor';
 import { ContentEditorCore } from '../editor/editting/ContentEditorCore';
 import { DraggingItem } from '../editor/editting/DraggingItem';
@@ -17,7 +15,7 @@ import { getIndexedItem } from '../utils';
 
 import { ContentEditorProps } from './ContentEditor';
 
-type ContentEditorInnerProps = Omit<ContentEditorProps, 'theme'>;
+type ContentEditorInnerProps = Omit<ContentEditorProps, 'theme' | 'Wrapper'>;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -30,14 +28,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const DefaultWrapper: React.FC = ({ children }) =>
-    <ThemeProvider theme={defaultThemeSettings}>{children}</ThemeProvider>;
-
 export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
     id,
     content,
-    onChange,
-    Wrapper = DefaultWrapper
+    onChange
 }) => {
     const classes = useStyles();
 
@@ -183,22 +177,20 @@ export const ContentEditorInner: React.FC<ContentEditorInnerProps> = ({
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
         >
-            <Wrapper>
-                <SplitPanel id="__editor_core" split="vertical" primary="second" defaultSplit={300}>
-                    <Panel>
-                        <div
-                            className={classes.container}
-                            onClick={handleBackgroundClick}
-                        >
-                            <ContentEditorCore />
-                        </div>
-                    </Panel>
+            <SplitPanel id="__editor_core" split="vertical" primary="second" defaultSplit={300}>
+                <Panel>
+                    <div
+                        className={classes.container}
+                        onClick={handleBackgroundClick}
+                    >
+                        <ContentEditorCore />
+                    </div>
+                </Panel>
 
-                    <Settings />
-                </SplitPanel>
+                <Settings />
+            </SplitPanel>
 
-                <DraggingItem ref={dragRef} />
-            </Wrapper>
+            <DraggingItem ref={dragRef} />
         </div>
     );
 };
