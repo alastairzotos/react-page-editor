@@ -1,6 +1,12 @@
-# Bitmetro React Content Editor
+# @bitmetro/react-page-editor
 
-A simple drag-and-drop content editor for react
+![react page editor](https://media.giphy.com/media/UoeNfsHNPTgI5rmQsA/giphy.gif)
+
+An easy-to-use drag-and-drop content editor for React.
+
+Note that this is currently a WIP and there may be breaking changes.
+
+You can raise any issues or ask questions in the [Github repo](https://github.com/alastairzotos/react-page-editor).
 
 ## Installation
 
@@ -18,3 +24,18 @@ const App = () => {
     return <ContentEditor content={state} onChange={s => setState(s)} />;
 };
 ```
+
+## Running the examples
+
+Navigate into `src/examples` and then into one of the example projects, e.g. `Basic`, then:
+
+```
+npm install
+npm start
+```
+
+And navigate to `http://localhost:8787`
+
+## Documentation
+
+// Todo 🤙

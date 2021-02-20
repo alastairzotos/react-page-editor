@@ -1,6 +1,11 @@
 {
   "name": "@bitmetro/react-page-editor",
   "version": "0.0.18",
+  "homepage": "https://github.com/alastairzotos/react-page-editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alastairzotos/react-page-editor.git"
+  },
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json './**/*.ts{x,}'",

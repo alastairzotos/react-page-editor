@@ -1,0 +1,23 @@
+{
+  "name": "basic-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@bitmetro/react-page-editor": "0.0.18",
+    "react-dom": "^17.0.1"
+  }
+}
