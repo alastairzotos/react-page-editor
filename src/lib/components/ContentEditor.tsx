@@ -1,6 +1,6 @@
 import { PageItem } from '@bitmetro/cms-common';
 import {
-    defaultTheme,
+    // defaultTheme,
     defaultThemeSettings,
     EditorTheme,
     EditorThemeContext,
@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 
+import { defaultTheme } from '../defaultTheme';
 import { ContainerEditor } from '../editor/editting/ContainerEditor';
 import { contentEditorReducer } from '../reducers';
 import { styles } from '../styles';
