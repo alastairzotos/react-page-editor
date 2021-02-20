@@ -4,3 +4,4 @@ webpack.config.js
 templates
 tsconfig.json
 dist/examples
+examples
