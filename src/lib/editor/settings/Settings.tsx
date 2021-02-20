@@ -16,6 +16,14 @@ const useStyles = makeStyles(theme => ({
     },
     notSelected: {
         color: theme.palette.text.hint
+    },
+    outer: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    remainingSpace: {
+        flexGrow: 1
     }
 }));
 
@@ -41,6 +49,10 @@ export const Settings: React.FC = () => {
         );
     };
 
+    const handleBackgroundClick = () => {
+        dispatch(contentEditorActions.selectItem(null));
+    };
+
     return (
         <Panel className={classes.root}>
             {!shouldShowSettings && (
@@ -50,24 +62,32 @@ export const Settings: React.FC = () => {
             {shouldShowSettings && (
                 <PageItemContext.Provider value={selectedItem}>
                     <ThemeItemContext.Provider value={themeItem}>
-                        {
-                            Object.keys(ThemeItemSettings).map((title, index) => {
-                                const SettingsComp = ThemeItemSettings[title];
+                        <div className={classes.outer}>
+                            {
+                                Object.keys(ThemeItemSettings).map((title, index) => {
+                                    const SettingsComp = ThemeItemSettings[title];
 
-                                return (
-                                    <SettingsGroup
-                                        key={index}
-                                        title={title}
-                                        open={title === themeItem.name}
-                                    >
-                                        <SettingsComp
-                                            data={selectedItem.props}
-                                            onUpdate={handleUpdateItem}
-                                        />
-                                    </SettingsGroup>
-                                );
-                            })
-                        }
+                                    return (
+                                        <SettingsGroup
+                                            key={index}
+                                            title={title}
+                                            open={title === themeItem.name}
+                                        >
+                                            <SettingsComp
+                                                data={selectedItem.props}
+                                                onUpdate={handleUpdateItem}
+                                            />
+                                        </SettingsGroup>
+                                    );
+                                })
+                            }
+
+                            <div
+                                className={classes.remainingSpace}
+                                onClick={handleBackgroundClick}
+                            >
+                            </div>
+                        </div>
                     </ThemeItemContext.Provider>
                 </PageItemContext.Provider>
             )}
