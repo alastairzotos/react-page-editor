@@ -27,7 +27,7 @@ const App = () => {
 
 ## Running the examples
 
-Navigate into `src/examples` and then into one of the example projects, e.g. `Basic`, then:
+Navigate into `examples` and then into one of the example projects, e.g. `Basic`, then:
 
 ```
 npm install
