@@ -5,4 +5,4 @@ templates
 tsconfig.json
 dist/examples
 examples
-dev
+dist/dev
