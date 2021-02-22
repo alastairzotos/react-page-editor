@@ -6,6 +6,18 @@
     "type": "git",
     "url": "https://github.com/alastairzotos/react-page-editor.git"
   },
+  "keywords": [
+    "page editor",
+    "content editor",
+    "react page editor",
+    "react content editor",
+    "wysiwyg",
+    "wysiwyg editor",
+    "react wysiwyg",
+    "react wysiwyg editor",
+    "drag and drop editor",
+    "react drag and drop editor"
+  ],
   "scripts": {
     "build": "tsc",
     "start:dev": "webpack-dev-server",
